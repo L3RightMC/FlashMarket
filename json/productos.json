@@ -1,0 +1,82 @@
+{
+    "iphone": [
+        {
+            "nombre": "iPhone 13 Pro Max 128GB - Grafito - Libre",
+            "imagen": "../img/productos/apple/iphone-13-pro-max.png",
+            "id": "iphone-13-pro-max",
+            "precio": 775
+        },
+        {
+            "nombre": "iPhone 15 128GB - Amarillo - Libre",
+            "imagen": "../img/productos/apple/iphone-15.png",
+            "id": "iphone-15",
+            "precio": 838
+        },
+        {
+            "nombre": "Apple Watch Ultra (2022)",
+            "imagen": "../img/productos/apple/apple-watch-ultra.png",
+            "id": "apple-watch-ultra",
+            "precio": 421
+        },
+        {
+            "nombre": "iPhone 14 Pro 512GB - Plata - Libre",
+            "imagen": "../img/productos/apple/iphone-14-pro.png",
+            "id": "iphone-14-pro",
+            "precio": 874
+        },
+        {
+            "nombre": "Apple Watch Series 9 (2023)",
+            "imagen": "../img/productos/apple/apple-watch.png",
+            "id": "apple-watch",
+            "precio": 568
+        }
+    ],
+    "samsung": [
+        {
+            "nombre": "Samsung Galaxy S25 Ultra",
+            "imagen": "../img/productos/samsung/samsung-s25u.png",
+            "id": "samsung-s25u",
+            "precio": 877
+        },
+        {
+            "nombre": "Samsung Galaxy Z Fold 7",
+            "imagen": "../img/productos/samsung/samsung-zfold-7.png",
+            "id": "samsung-fold7",
+            "precio": 950
+        },
+        {
+            "nombre": "Samsung Watch 8",
+            "imagen": "../img/productos/samsung/samsung-watch8.png",
+            "id": "samsung-watch8",
+            "precio": 374
+        },
+        {
+            "nombre": "Samsung Tab S10 Ultra",
+            "imagen": "../img/productos/samsung/samsung-tab-s10-ultra.png",
+            "id": "samsung-tab-s10u",
+            "precio": 758
+        }
+    ],
+    "pcwindows": [
+        {
+            "nombre": "Asus Vivobook 15",
+            "imagen": "../img/productos/pc/asus-vivobook-15.png",
+            "id": "asus15",
+            "precio": 575
+        },
+        {
+            "nombre": "HP Victus 16",
+            "imagen": "../img/productos/pc/HP-Victus-16.png",
+            "id": "victus16",
+            "precio": 741
+        }
+    ],
+    "electrodomesticos": [
+        {
+            "nombre": "Robots aspiradores 36D S9",
+            "imagen": "../img/productos/electrodomesticos/robot.png",
+            "id": "robot",
+            "precio": 374
+        }
+    ]
+}

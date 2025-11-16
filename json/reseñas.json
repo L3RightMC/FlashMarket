@@ -1,0 +1,44 @@
+[
+    {
+        "nombre": "Judit G.",
+        "opinion": "Me llego 1 dia antes de lo esperado! Muy buen embalaje, funda de regalo, escogí el Excelente,y ha llegado impoluto, sin ninguna grieta en pantalla",
+        "valoracion": 5,
+        "imagen": "../img/reseñas/original.png",
+        "producto_id": "iphone-13-pro-max"
+    },
+    {
+        "nombre": "Manel S.",
+        "opinion": "Compré un iPhone 15 reacondicionado para regalar. El producto sin arañazos, ni desgaste propio del uso, batería al 99%.",
+        "valoracion": 4,
+        "imagen": "../img/reseñas/original1.png",
+        "producto_id": "iphone-15"
+    },
+    {
+        "nombre": "Josep G.",
+        "opinion": "Lo siento pero quiero decir que no me vuelvo a comprar un teléfono nuevo!!! Ni un Apple watch!!! Menuda maravilla como me llegó mi nuevo iPhone y mi nuevo Apple watch",
+        "valoracion": 5,
+        "imagen": "../img/reseñas/original2.png",
+        "producto_id": "apple-watch-ultra"
+    },
+    {
+        "nombre": "Sergio H.",
+        "opinion": "En su caja original sin estrenar una pasada",
+        "valoracion": 5,
+        "imagen": "../img/reseñas/original3.png",
+        "producto_id": "apple-watch"
+    },
+    {
+        "nombre": "Igor J.",
+        "opinion": "En su caja Original y con todos sus accesorios. Funciona genial, Ahorramos algo de dinero y ayudamos a no contaminar demás. Todo perfecto",
+        "valoracion": 5,
+        "imagen": "../img/reseñas/original4.png",
+        "producto_id": "robot"
+    },
+    {
+        "nombre": "Ayman D.",
+        "opinion": "Por ahora todo perfecto estoy contento con las condiciones del teléfono y el tiempo en el que se envió el pedido",
+        "valoracion": 5,
+        "imagen": "../img/reseñas/original5.png",
+        "producto_id": "iphone-14-pro"
+    }
+]

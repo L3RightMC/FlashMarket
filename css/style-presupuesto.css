@@ -1,0 +1,312 @@
+@font-face {
+    font-family: 'Geomanist';
+    src: url(../fonts/geomanist-regular-webfont.ttf);
+}
+@font-face {
+    font-family: 'Meccanica';
+    src: url(../fonts/meccanica-regular.otf);
+}
+@font-face {
+    font-family: 'Neue';
+    src: url(../fonts/NeueMachina-Regular.otf);
+}
+@font-face {
+    font-family: 'Phage';
+    src: url(../fonts/Phage\ Regular.otf);
+}
+@font-face {
+    font-family: 'Sansburg';
+    src: url(../fonts/Sansburg.ttf);
+}
+@font-face {
+    font-family: 'JustR';
+    src: url(../fonts/JustR.otf);
+}
+@keyframes abajo-anim{
+    0%{
+        transform: translateY(0);
+    }
+    25%{
+        transform: translateY(10px);
+    }
+    50%{
+        transform: translateY(0);
+    }
+    75%{
+        transform: translateY(10px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+@keyframes girar{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+body.oscuro main{
+    color: white;
+}
+main.main-presupuesto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    font-family: 'Neue';
+    background-color: white;
+}
+body.oscuro main{
+    background-color: black;
+}
+.titulo-formulario{
+    margin-left: 0;
+    align-self: flex-start;
+    width: 100%;
+    padding: 20px;
+}
+hr{
+    border: 1px solid black
+}
+.presupuesto{
+    background-color: rgb(255, 255, 255);
+    width: 70%;
+    height: auto;
+    padding: 40px;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.5);
+    margin-top: 6%;
+}
+body.oscuro .presupuesto{
+    background-color: rgb(30, 30, 30);
+    box-shadow: 2px 4px 6px rgba(255, 255, 255, 0.5);
+}
+.presupuesto h2{
+    font-size: 25px;
+    margin-bottom: 1%;
+}
+.presupuesto hr{
+    margin-bottom: 5%;
+}
+.formulario{
+    gap: 50px;
+    width: 100%;
+    padding: 30px;
+}
+.rellenar-formulario{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.rellenar-formulario-1{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.datos{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 5%;
+    background-color: rgb(230, 230, 230);
+    padding: 10px;
+}
+input.valid{
+    border: 2px solid rgb(38, 255, 38) !important;
+}
+input.error{
+    border: 2px solid rgb(255, 37, 37) !important;
+}
+.mensaje-error{
+    color: rgb(255, 33, 33);
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+}
+body.oscuro .datos{
+    background-color: rgb(20, 20, 20);
+}
+.nombre, .apellidos, .email, .telefono{
+    width: 60%;
+    padding: 3px 20px;
+    border: 1px solid black;
+}
+.mensaje-error{
+    color: red;
+    font-size: 10px;
+}
+.select{
+    width: 100%;
+    margin-bottom: 5%;
+}
+.select-personalizado{
+    width: 100%;
+    cursor: pointer;
+}
+.select-titulo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    border: 2px solid rgb(230, 230, 230);
+    border-radius: 5px;
+    background-color: white;
+    transition: border 0.3s;
+}
+.select-titulo:hover{
+    border: 2px solid rgb(0, 0, 0);
+}
+.select-texto{
+    color: rgb(20, 20, 20);
+}
+.flecha{
+    transition: transform 0.3s;
+    font-size: 12px;
+}
+.select-personalizado.active .flecha{
+    transform: rotate(180deg);
+}
+.opciones-lista{
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    background-color: white;
+    border: 2px solid rgb(230, 230, 230);
+    border-top: none;
+    transition: max-height 0.4s ease;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+}
+.select-personalizado.active .opciones-lista{
+    max-height: 500px;
+    overflow-y: auto;
+}
+.option{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border: 1px solid rgb(240, 240, 240)
+}
+.option:hover{
+    background-color: rgb(245, 245, 245);
+}
+.option.selected{
+    background-color: gray; 
+    color: white;
+}
+.option img{
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+.option span{
+    flex: 1;
+    font-size: 14px;
+}
+body.oscuro .select-titulo {
+    background-color: black;
+    border-color: white;
+}
+body.oscuro .select-texto {
+    color: white;
+}
+body.oscuro .opciones-lista {
+    background-color: black;
+    border-color: white;
+}
+body.oscuro .option {
+    border-color: rgb(50, 50, 50);
+}
+body.oscuro .option:hover {
+    background-color: rgb(40, 40, 40);
+}
+body.oscuro .option span{
+    color: white;
+}
+.plazo-dias{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(230, 230, 230);
+}
+body.oscuro .plazo-dias{
+    background-color: rgb(20, 20, 20);
+}
+.plazo-dias h2{
+    font-size: 25px;
+}
+.plazo{
+    width: 60%;
+    text-align: center;
+    font-size: 15px;
+}
+.plazo::placeholder{
+    text-align: center;
+}
+.plazo-contenedor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.extras{
+    margin-bottom: 1%;
+    background-color: rgb(230, 230, 230);
+    padding: 10px;
+}
+body.oscuro .extras{
+    background-color: rgb(20, 20, 20);
+}
+.opciones{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+input[type="checkbox"].extra {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.presupuesto-final{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+.presupuesto-final span{
+    font-size: 20px;
+}
+.valor-presupuesto{
+    color: rgb(70, 255, 70);
+    font-size: 25px;
+}
+.botones-decision{
+    display: flex;
+    height: auto;
+    justify-content: center;
+    gap: 50px;
+}
+.botones-decision button{
+    padding: 20px 35px;
+    border: none;
+    font-family: 'Neue';
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.botones-decision button:hover{
+    transform: scale(0.9);
+}
+.comprar{
+    background-color: rgb(120, 255, 120);
+}
+.reset{
+    background-color: rgb(255, 72, 72);
+}

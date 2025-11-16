@@ -1,0 +1,113 @@
+@font-face {
+    font-family: 'Geomanist';
+    src: url(../fonts/geomanist-regular-webfont.ttf);
+}
+@font-face {
+    font-family: 'Meccanica';
+    src: url(../fonts/meccanica-regular.otf);
+}
+@font-face {
+    font-family: 'Neue';
+    src: url(../fonts/NeueMachina-Regular.otf);
+}
+@font-face {
+    font-family: 'Phage';
+    src: url(../fonts/Phage\ Regular.otf);
+}
+@font-face {
+    font-family: 'Neue';
+    src: url(../fonts/NeueMachina-Regular.otf);
+}
+@font-face {
+    font-family: 'JustR';
+    src: url(../fonts/JustR.otf);
+}
+@keyframes abajo-anim{
+    0%{
+        transform: translateY(0);
+    }
+    25%{
+        transform: translateY(10px);
+    }
+    50%{
+        transform: translateY(0);
+    }
+    75%{
+        transform: translateY(10px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+@keyframes girar{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+main{
+    font-family: 'Neue';
+    padding-top: 50px;
+}
+section{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contactar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    background-color: rgb(245, 245, 245);
+    padding: 10px;
+}
+body.oscuro .contactar{
+    background-color: rgb(10, 10, 10);
+}
+body.oscuro .datos h1{
+    color: white;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: rgb(220, 220, 220);
+}
+body.oscuro table{
+    background-color: rgb(35, 35, 35);
+}
+table tr{
+    border-bottom: 1px solid rgb(0, 0, 0);
+}
+body.oscuro table tr{
+    border-bottom: 1px solid white;
+}
+table td{
+    padding: 12px 15px;
+}
+table td:first-child{
+    font-weight: bold;
+    width: 200px;
+    color: rgb(40, 40, 40);
+}
+body.oscuro table td:first-child{
+    color: rgb(211, 211, 211);
+}
+table td:last-child{
+    color: rgb(20, 20, 20);
+}
+body.oscuro table td:last-child{
+    color: rgb(226, 226, 226);
+}
+table a{
+    color: rgb(59, 176, 255);
+    text-decoration: none;
+}
+table a:hover{
+    text-decoration: underline;
+}

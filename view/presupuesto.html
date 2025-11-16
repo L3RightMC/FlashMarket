@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style-presupuesto.css">
+    <link rel="stylesheet" href="../css/style-nav-footer.css">
+    <script src="../js/general.js" defer></script>
+    <script src="../js/script-presupuesto.js" defer></script>
+    <title>Compra - FlashMarket</title>
+</head>
+<body>
+    <canvas class="estrellitas"></canvas>
+    <header>
+        <nav>
+            <a href="index.html"><span>L3RightMC</span></a>
+            <div class="campo-busqueda">
+                
+            </div>
+            <ul>
+                <li class="campo-busqueda">
+                    <input type="text" class="busqueda" placeholder="Escribe para buscar...">
+                    <button class="boton-buscar"><i class="fa-duotone fa-solid fa-magnifying-glass"></i></button>
+                </li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="galeria.html">Galería</a></li>
+                <li><a class="actual" href="presupuesto.html">Me apetece comprar...</a></li>
+                <li><a href="contactanos.html">Contactános!</a></li>
+            </ul>
+            <button class="tema"><img src="../img/tema/claro.png" alt="modo claro"></button>   
+        </nav>
+    </header>
+
+    <!-- MAIN del formulario de presupuesto -->
+    <main class="main-presupuesto">
+        <div class="presupuesto">
+            <div class="titulo-formulario">
+                <h1>Quiero comprar...</h1>
+                <p>Rellena este formulario para calcular su presupuesto</p>
+                <hr>
+            </div>
+            <!-- Sé que no me tomo en serio en los trabajos, pero cuando trabaje y hago trabajos serios, ahi ya quito lo gracioso -->
+            <form class="formulario" id="formulario-presupuesto">
+                <h2>Datos del contacto</h2>
+                <hr>
+                <div class="datos">
+                    <div class="rellenar-formulario">
+                        <label for="nombre">Nombre *</label>
+                        <input type="text" id="nombre" class="nombre" name="nombre" maxlength="15" required>
+                        <div class="mensaje-error">El nombre sólo puede tener letras (mínimo 3 y máximo 15 caracteres)</div>
+                    </div>
+                    <div class="rellenar-formulario">
+                        <label for="apellidos">Apellidos *</label>
+                        <input type="text" id="apellidos" class="apellidos" name="apellidos" maxlength="30" required>
+                        <div class="mensaje-error">Los apellidos sólo pueden tener letras (mínimo 3 y máximo 30 caracteres)</div>
+                    </div>
+                    <div class="rellenar-formulario">
+                        <label for="email">Correo electrónico *</label>
+                        <input type="email" id="email" class="email" name="email" required placeholder="ejemplo@ejemplo.com">
+                        <div class="mensaje-error">Introduce un correo electrónico válido. [Ejemplo: ejemplo@ejemplo.com]</div>
+                    </div>
+                    <div class="rellenar-formulario">
+                        <label for="telefono">Teléfono de contacto *</label>
+                        <input type="tel" id="telefono" class="telefono" name="telefono" maxlength="9" required>
+                        <div class="mensaje-error">El teléfono solo puede contener números (máximo 9 dígitos)</div>
+                    </div>
+                </div>
+                <h2>Configuración del presupuesto</h2>
+                <hr>
+
+                <div class="rellenar-formulario-1">
+                    <div class="select">
+                        <h2>Selecciona un producto *</h2>
+                        <div class="select-personalizado">
+                            <div class="select-titulo">
+                                <span class="select-texto">Selecciona un producto</span>
+                                <i class="flecha">▼</i>
+                            </div>
+                            <div class="opciones-lista">
+                                <!-- Se cargan desde JSON -->
+                            </div>
+                        </div>
+                        <input type="hidden" id="producto-seleccionado" name="producto" value="">
+                    </div>
+                    <div class="plazo-dias">
+                    <h2>Plazo de entrega (días) *</h2>
+                    <div class="plazo-contenedor">
+                        <input type="number" id="plazo" name="plazo" class="plazo" min="1" max="35" value="12" required>
+                        <span>-15 días: +10% / 15-25 días: Sin recargo / +25 días: -10% descuento</span>
+                    </div>
+                </div>
+
+                <div class="extras">
+                    <h2>Extras (opcionales)</h2>
+                    <div class="opciones">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="extra1" class="extra" name="extras" value="15">
+                            <label for="extra1">Protector de pantalla incluido (+15€)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="extra2" class="extra" name="extras" value="10">
+                            <label for="extra2">Funda transparente (+10€)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="extra3" class="extra" name="extras" value="25">
+                            <label for="extra3">Cargador incluido (+25€)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="extra4" class="extra" name="extras" value="5.80">
+                            <label for="extra4">Seguro por producto desaparecido y/o defectos (+5.80€)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="presupuesto-final">
+                    <span>Total:</span>
+                    <div class="valor-presupuesto">0.00€</div>
+                </div>
+
+                <div class="condiciones-group">
+                    <input type="checkbox" id="condiciones" name="condiciones" required>
+                    <label for="condiciones">
+                        Acepto las <a href="#">condiciones de privacidad</a> *
+                    </label>
+                </div>
+
+                <div class="botones-decision">
+                    <button type="submit" class="comprar">Comprar</button>
+                    <button type="reset" class="reset">Resetear Presupuesto</button>
+                </div>
+                </div> 
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="lo-esencial">
+            <div class="footer-logo">
+                <h1>FlashMarket</h1>
+                <p>Compra con cabeza. Estrena sin gastar</p>
+                <div class="redes-sociales">
+                    <ul>
+                        <li><a href="https://github.com/L3RightMC"><img src="../img/redes/github-logo.png" alt="Github"></a></li>
+                        <li><a href="https://www.instagram.com/nev3r._.m1nd/"><img src="../img/redes/instagram-logo.png" alt="Instagram"></a></li>
+                        <li><a href="https://x.com/L3rightMC"><img src="../img/redes/x-logo.png" alt="X"></a></li>
+                        <li><a href="https://www.facebook.com/L3RightMC"><img src="../img/redes/facebook-logo.png" alt="Facebook"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="enlaces">
+                <div class="navegar">
+                    <h3>Navegar</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="view/galeria.html">Galería</a></li>
+                        <li><a href="view/presupuesto.html">Me apetece comprar...</a></li>
+                        <li><a href="view/contactanos.html">Contáctanos!</a></li>
+                    </ul>
+                </div>
+                <div class="interes">
+                    <h3>Enlaces de interés</h3>
+                    <ul>
+                        <li><a href="">Política de privacidad</a></li>
+                        <li><a href="">Uso de cookies</a></li>
+                        <li><a href="">Control de su info. personal</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="newsletter-fondo">
+            <div class="newsletter">
+                <div class="newsletter-titulo">
+                    <h2>Tu dosis de tecnoactualidad (¡y ofertones, claro!)</h2>
+                    <span>Entérate antes que nadie de las novedades y noticias más TOP del universo tecnológico y recibe ofertas exclusivas.</span>
+                </div>
+                <div class="newsletter-correo">
+                    <form action="get" name="correo-form" class="form">
+                        <input type="email" name="correo" class="correo" placeholder="ejemplo@ejemplo.com">
+                        <input type="submit" value="Enviar" class="boton-enviar">
+                    </form>
+                </div>
+                <div class="newsletter-img">
+                    <img src="../img/qr.png" alt="codigo qr style">
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

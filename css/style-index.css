@@ -1,0 +1,311 @@
+main{
+    font-family: 'Neue';
+}
+body.oscuro hr{
+    border: 1px solid white;
+}
+.home-presentacion{
+    position: relative;
+    background-color: rgb(210, 210, 210);
+    display: flex;
+    flex-direction: column;    
+    align-items: center;
+    justify-content: center;
+    height: 730px;
+    width: 100%;
+    z-index: 1;
+    gap: 50px;
+}
+body.oscuro .home-presentacion{
+    background-color: rgb(15, 15, 15);
+}
+.home-presentacion h1{
+    font-size: 55px;
+    background-color: white;
+    max-width: 50%;
+    text-align: center;
+    padding: 20px;
+}
+body.oscuro .home-presentacion h1, body.oscuro .home-presentacion p{
+    background-color: black;
+    color: white;
+}
+.home-presentacion span{
+    font-size: 70px;
+}
+.home-presentacion p{
+    background-color: rgb(230, 230, 230);
+    max-width: 63%;
+    text-align: center;
+    z-index: 2;
+    padding: 10px;
+}
+.div-deco{
+    position: absolute;
+    width: 30%;
+    height: 150px;
+    background-color: rgb(255, 255, 255);
+}
+.plus{
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+.plus span{
+    color: black;
+}
+body.oscuro .plus span{
+    color: white;
+}
+.disco{
+    position: absolute;
+    z-index: -1;
+    animation: girar 15s infinite linear;
+    top: 380px;
+    width: 700px;
+}
+.descripcion-producto{
+    position: relative;
+    background-color: rgb(188, 188, 188);
+    display: flex;           
+    align-items: center;
+    justify-content: center;
+    height: 630px;
+    width: 100%;
+    z-index: 1;
+}
+.categoria{
+    position: relative;
+    height: 100vh;
+    background-color: rgb(204, 204, 204);
+    z-index: 2;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+}
+body.oscuro .categoria{
+    background-color: rgb(20, 20, 20);
+}
+body.oscuro .categoria h2{
+    color: white;
+}
+.productos{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap
+}
+.producto{
+    width: 20%;
+    height: 200px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+body.oscuro .producto{
+    background-color: black;
+}
+.producto:hover{
+    transform: translateY(-10px);
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.5);
+}
+body.oscuro .producto:hover{
+    box-shadow: 2px 4px 6px rgba(165, 165, 165, 0.5);
+}
+.producto img{
+    width: 70%;
+    height: 70%;
+    object-fit: cover;
+}
+body.oscuro .producto h3{
+    color: white;
+}
+.descripcion{
+    position: relative;
+    background-color: rgb(230, 230, 230);
+    height: 100vh;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+body.oscuro .descripcion{
+    background-color: rgb(27, 27, 27);
+}
+.plus1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none; 
+    color: black;
+}
+body.oscuro .plus1, body.oscuro .descripcion h2, body.oscuro .descr-p{
+    color: white;
+}
+.descripcion h2{
+    font-size: 50px;
+}
+.descr-p{
+    text-align: center;
+    background-color: rgb(230, 230, 230);
+}
+body.oscuro .descr-p{
+    background-color: rgb(15, 15, 15);
+}
+.descripcion-detalles{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+.descripcion h2, .descripcion p, .descripcion-detalles{
+    position: relative;
+    z-index: 1;
+}
+.detalle{
+    width: 20%;
+    height: 250px;
+    padding: 20px;
+    background-color: rgb(175, 175, 175);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+body.oscuro .detalle{
+    background-color: rgb(0, 0, 0);
+}
+.detalle:hover{
+    transform: translateY(-15px);
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.5);
+}
+body.oscuro .detalle:hover{
+    box-shadow: 2px 4px 6px rgba(218, 218, 218, 0.5);
+}
+.detalle i{
+    font-size: 30px;
+}
+body.oscuro .detalle i{
+    color: white;
+}
+.detalle h3{
+    text-align: center;
+}
+.detalle p{
+    text-align: center;
+    font-size: 12px;
+}
+body.oscuro .detalle p, body.ocscuro .detalle h3{
+    color: white;
+}
+.reseñas{
+    width: 100%;
+    height: 120vh;
+    background-color: rgb(215, 215, 215);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+}
+body.oscuro .reseñas{
+    background-color: rgb(15, 15, 15);
+}
+.reseñas h2{
+    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+body.oscuro h2{
+    color: white;
+}
+.valoraciones{
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    overflow-x: auto;
+}
+.pre-valoracion {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-width: 300px;
+    width: 300px;
+    flex-shrink: 0;
+}
+.valoracion{
+    width: 100%;
+    height: 400px; 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    gap: 280px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.valoracion span{
+    background-color: white;
+    padding: 5px;
+}
+body.oscuro .valoracion span{
+    background-color: black;
+    color: white;
+}
+.descripcion-valoracion p{
+    font-size: 10px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255, 0.5);
+    padding: 2px;
+}
+body.oscuro .descripcion-valoracion p{
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+body.oscuro .descripcion-producto{
+    background-color: black;
+}
+.producto-descripcion{
+    width: 100%;
+    height: 50px;
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+body.oscuro .producto-descripcion{
+    background-color: rgb(10, 10, 10);
+}
+.producto-descripcion img{
+    width: 50px;
+    object-fit: cover;
+}
+.producto-descripcion p{
+    font-size: 10px;
+}
+body.oscuro .producto-descripcion p{
+    color: white;
+}

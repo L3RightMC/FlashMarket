@@ -1,0 +1,352 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, fill 0.5s ease, stroke 0.5s ease;
+}
+@font-face {
+    font-family: 'Geomanist';
+    src: url(../fonts/geomanist-regular-webfont.ttf);
+}
+@font-face {
+    font-family: 'Meccanica';
+    src: url(../fonts/meccanica-regular.otf);
+}
+@font-face {
+    font-family: 'Neue';
+    src: url(../fonts/NeueMachina-Regular.otf);
+}
+@font-face {
+    font-family: 'Phage';
+    src: url(../fonts/Phage\ Regular.otf);
+}
+@font-face {
+    font-family: 'Sansburg';
+    src: url(../fonts/Sansburg.ttf);
+}
+@font-face {
+    font-family: 'JustR';
+    src: url(../fonts/JustR.otf);
+}
+@keyframes abajo-anim{
+    0%{
+        transform: translateY(0);
+    }
+    25%{
+        transform: translateY(10px);
+    }
+    50%{
+        transform: translateY(0);
+    }
+    75%{
+        transform: translateY(10px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+@keyframes girar{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+body{
+    background-color: white;
+    color: black;
+    overflow-x: hidden;
+}
+.texto-izquierda, .texto-derecha{
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+}
+.estrellitas{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+header nav span{
+    font-family: 'Phage';
+    font-size: 2.5rem;
+    color: black;
+    padding: 10px;
+    font-weight: bold;
+    position: absolute;
+    top: 8%;
+    left: 20px;
+    transition: transform 0.3s ease;
+}
+body.oscuro header nav a span{
+    color: white;
+}
+header nav a span:hover{
+    transform: scale(0.8);
+}
+header nav{
+    position: fixed;
+    font-family: 'Neue';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 80px;
+    padding: 10px 20px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
+body.oscuro header nav{
+    background-color: rgb(0, 0, 0);
+}
+header nav ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+header nav ul li a{
+    color: rgb(142, 142, 142);
+    transition: color 0.3s ease;
+}
+.actual{
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    color: black;
+}
+body.oscuro .actual{
+    color: white;
+}
+header nav ul li a:hover{
+    color: rgb(34, 34, 34);
+}
+.campo-busqueda {
+  display: flex;
+  align-items: center;
+}
+.busqueda{
+    border: 1px solid black;
+    border-right: none;
+    padding: 5px 20px;
+    outline: none;
+}
+body.oscuro .busqueda{
+    border: 1px solid white;
+    background-color: black;
+}
+body.oscuro .busqueda::placeholder{
+    color: white;
+}
+.boton-buscar{
+    border: 1px solid black;
+    border-left: none;
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+body.oscuro .boton-buscar{
+    border: 1px solid rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+body.oscuro .boton-buscar:hover{
+    background-color: rgb(175, 175, 175);
+}
+.boton-buscar:hover{
+    background-color: gray;
+}
+.boton-buscar i{
+    color: white;
+}
+body.oscuro .boton-buscar i{
+    color: black;
+}
+.tema{
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+.tema img{
+    width: 70px;
+    position: absolute;
+    left: 97%;
+    top: -25px;
+    animation: girar 5s infinite linear;
+}
+
+footer{
+    height: auto;
+    backdrop-filter: blur(1px);
+    padding: 60px;
+}
+body.oscuro footer{
+    color: white;
+}
+.lo-esencial{
+    display: flex;
+    margin-bottom: 5%;
+}
+.footer-logo{
+    width: 60%;
+    height: 200px;
+}
+.footer-logo h1{
+    font-family: 'Meccanica';
+    font-size: 60px;
+}
+.footer-logo p{
+    font-family: 'Neue';
+    font-size: 20px;
+    margin-bottom: 2%;
+}
+.redes-sociales{
+    height: 70px;
+    width: 42%;
+    display: flex;
+    align-items: center;
+}
+.redes-sociales ul li a img{
+    width: 45px;
+    object-fit: contain;
+    transition: filter 0.3s ease;
+}
+.redes-sociales ul{
+    display: flex;
+    gap: 20px;
+}
+.redes-sociales ul li a{
+    padding: 8px 13px;
+    background-color: black;
+    display: flex;
+    border-radius: 5px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+body.oscuro .redes-sociales ul li a img{
+    filter: invert(1);
+}
+body.oscuro .redes-sociales ul li a{
+    background-color: white;
+}
+.redes-sociales ul li a:hover{
+    transform: scale(0.8);
+}
+.enlaces{
+    font-family: 'Geomanist';
+    width: 40%;
+    display: flex;
+}
+.enlaces a{
+    color: cadetblue;
+}
+.navegar{
+    width: 50%;
+    height: 200px;
+}
+.interes{
+    width: 50%;
+    height: 200px;
+}
+.navegar h3, .interes h3{
+    font-size: 30px;
+    margin-bottom: 10%;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+}
+.navegar ul, .interes ul{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.navegar ul li a, .interes ul li a{
+    font-size: 20px;
+    display: block;
+    transition: transform 0.3s ease;
+}
+.navegar ul li a:hover, .interes ul li a:hover{
+    transform: scale(0.9);
+}
+.newsletter-fondo{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: lightgreen;
+    height: 150px;
+    background-image: url(../img/fondos/fondo\ \(1\).jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.newsletter{
+    font-family: 'Neue';
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+}
+body.oscuro .newsletter{
+    background-color: black;
+}
+.newsletter-titulo{
+    margin-left: 2%;
+}
+.newsletter-titulo h2{
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+.newsletter-titulo span{
+    display: inline-block;
+    font-size: 20px;
+    width: 70%;
+}
+.form{
+    display: flex;
+}
+.correo{
+    padding: 10px 30px;
+    border: 2px solid rgb(0, 0, 0);
+    color: black;
+    font-family: 'Geomanist';
+    font-size: 15px;
+}
+body.oscuro .correo{
+    border: 2px solid rgb(255, 255, 255);
+    background-color: black;
+}
+.boton-enviar{
+    border: none;
+    background-color: black;
+    color: white;
+    padding: 14px 30px;
+    transition: background-color 0.3s ease;
+}
+body.oscuro .boton-enviar{
+    background-color: white;
+    color: black;
+}
+.boton-enviar:hover{
+    background-color: rgb(33, 33, 33);
+    cursor: pointer;
+}
+body.oscuro .boton-enviar:hover{
+    background-color: rgb(30, 30, 30);
+    color: white;
+}
+.newsletter-img{
+    margin-left: 6%;
+    display: flex;
+}
+.newsletter-img img{
+    width: 71px;
+}
+body.oscuro .newsletter-img img{
+    filter: invert(1);
+}
