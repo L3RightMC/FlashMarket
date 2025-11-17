@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const inputoculto = document.getElementById('producto-seleccionado');
 
     // json preparate
-    fetch('/json/productos.json')
+    fetch('../json/productos.json')
         .then(response => response.json())
         .then(data => {
 
