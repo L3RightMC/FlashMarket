@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-
+    // fondo de menor que. por qué? diseño.
     const simbolos = document.querySelector('.plus');
     setTimeout(() => {
         const spacingX = 25;
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     }, 100);
-
+    // ese fondo de barras. está chulo a que sí
     const simbolos1 = document.querySelector('.plus1');
     setTimeout(() => {
         const spacingX = 25;
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, 100);
 
-    // extrae el h2 y lo desplaza a la izquierda
+    // extrae el h2 y lo desplaza a la izquierda infinitamente, creo
     const velocidadtextoizquierda = 0.5;
     document.querySelectorAll('.texto-izquierda').forEach(h2 => {
         const contenidoriginal = h2.textContent.trim() + " ";
@@ -50,7 +50,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const repeticiones = Math.ceil((window.innerWidth * 2) / 50);
             h2.textContent = contenidoriginal.repeat(repeticiones);
         }
-
         iniciartextoizquierda();
 
         let posicion = 0;
@@ -61,7 +60,6 @@ document.addEventListener('DOMContentLoaded', function() {
             h2.style.transform = `translateX(${posicion}px)`;
             requestAnimationFrame(movertextoizquierda);
         }
-
         movertextoizquierda();
         window.addEventListener('resize', iniciartextoizquierda);
     });
@@ -76,7 +74,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const repeticiones = Math.ceil((window.innerWidth * 2) / 50);
             h2.textContent = contenidooriginal.repeat(repeticiones);
         }
-
         iniciartextoderecha();
 
         let posicion = 0;
@@ -87,16 +84,14 @@ document.addEventListener('DOMContentLoaded', function() {
             h2.style.transform = `translateX(${posicion}px)`;
             requestAnimationFrame(movertextoderecha);
         }
-
         movertextoderecha();
         window.addEventListener('resize', iniciartextoderecha);
     });
 
     // uff las reseñas...
-
     Promise.all([
-        fetch('js/reseñas.json').then(r => r.json()),
-        fetch('js/productos.json').then(r => r.json())
+        fetch('json/reseñas.json').then(r => r.json()),
+        fetch('json/productos.json').then(r => r.json())
     ])
     .then(([reseñas, productos]) => {
         const productosMap = {};
@@ -147,13 +142,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
             divproducto.appendChild(img);
             divproducto.appendChild(pproducto);
-
             prevaloracion.appendChild(divvaloracion);
             prevaloracion.appendChild(divproducto);
-
             contenedor.appendChild(prevaloracion);
         });
     })
-    .catch(error => console.error('Oye, no se me cargó este dato', error));
+    .catch(error => console.error('oye, no se me cargó este dato', error));
 
 });
