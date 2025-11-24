@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const inputemail = document.getElementById('email');
     const inputelefono = document.getElementById('telefono');
 
-    // validación para validar solo leras
+    // validación para validar solo letras
     function validarsololetras(texto) {
         const bloq = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
         return bloq.test(texto);

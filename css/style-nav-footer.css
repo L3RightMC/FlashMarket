@@ -4,7 +4,7 @@
     box-sizing: border-box;
     text-decoration: none;
     list-style-type: none;
-    transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, fill 0.5s ease, stroke 0.5s ease;
+    transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, fill 0.5s ease, stroke 0.5s ease, filter 0.5s ease;
 }
 @font-face {
     font-family: 'Geomanist';
