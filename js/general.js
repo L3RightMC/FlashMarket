@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
+
+    //aqui no hay json
     const botontema = document.querySelector('.tema');
     const imgtema = document.querySelector('.tema img');
-
     if (!botontema) {
         console.error('bro y el .tema?');
         return;
     }
-
     botontema.addEventListener('click', function() {
         console.log(botontema, ': cabrones no me miren');
         document.body.classList.toggle('oscuro');
@@ -34,7 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const ctx = canvas.getContext("2d");
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-
     const numestrellas = 200;
     let stars = [];
 
@@ -54,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         ctx.fillStyle = colorfondo;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-
         // dibuja estrellas
         stars.forEach(star => {
             ctx.globalAlpha = star.alpha;
@@ -62,16 +60,13 @@ document.addEventListener('DOMContentLoaded', function() {
             ctx.beginPath();
             ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
             ctx.fill();
-
             star.alpha += star.speed;
             if (star.alpha <= 0 || star.alpha >= 1) {
                 star.speed = -star.speed;
             }
         });
-
         ctx.globalAlpha = 1;
         requestAnimationFrame(drawestrellas);
     }
-
     drawestrellas();
 });

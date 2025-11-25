@@ -1,0 +1,86 @@
+[
+    {
+        "imagen": "/img/galeria/galeria-imagen1.png",
+        "descripcion": "caja negra movil flashmarket",
+        "width": 1080,
+        "height": 617
+    },
+    {
+        "imagen": "/img/galeria/galeria-imagen2.png",
+        "descripcion": "mini tienda de reparacion en Callao",
+        "width": 1080,
+        "height": 472
+    },
+    {
+        "imagen": "/img/galeria/galeria-imagen4.png",
+        "descripcion": "tienda fisica de nuestros productos en una tienda 'fisica' en Barcelona",
+        "width": 1080,
+        "height": 720
+    },
+    {
+        "imagen": "/img/galeria/galeria-imagen3.png",
+        "descripcion": "foto anuncio flashmarket",
+        "width": 1080,
+        "height": 516
+    },
+    {
+        "imagen": "/img/galeria/galeria-imagen5.png",
+        "descripcion": "productos reacondicionados en nuestra 'tienda fisica' en Barcelona",
+        "width": 1080,
+        "height": 788
+    },
+    {
+        "imagen": "/img/galeria/galeria-imagen6.png",
+        "descripcion": "persona sujetando un movil mostrando el logo",
+        "width": 1080,
+        "height": 788
+    },
+    {
+        "imagen": "/img/galeria/galeria-imagen7.png",
+        "descripcion": "anuncio en Reino Unido",
+        "width": 1080,
+        "height": 617
+    },
+    {
+        "imagen": "/img/galeria/galeria-imagen8.png",
+        "descripcion": "anuncio en Gran Vía sobre nuestros productos reacondicionados",
+        "width": 1080,
+        "height": 617
+    },
+    {
+        "imagen": "/img/galeria/galeria-imagen9.png",
+        "descripcion": "anuncio de nuestros productos en el metro de Reino Unido",
+        "width": 1080,
+        "height": 720
+    },
+    {
+        "imagen": "/img/galeria/galeria-imagen10.png",
+        "descripcion": "anuncio sobre nuestros productos en metro de Nueva York",
+        "width": 1080,
+        "height": 617
+    },
+    {
+        "imagen": "/img/galeria/galeria-imagen11.png",
+        "descripcion": "anuncio sobre nuestros dispositivos móviles y smartwaches en Reino Unido",
+        "width": 1080,
+        "height": 617
+    },
+    {
+        "imagen": "/img/galeria/galeria-imagen12.png",
+        "descripcion": "Foto de nuestros productos reacondicionados listos para usarse",
+        "width": 1080,
+        "height": 720
+    },
+    {
+        "imagen": "/img/galeria/galeria-imagen13.png",
+        "descripcion": "anuncio de la marca",
+        "width": 1080,
+        "height": 564
+    },
+    {
+        "imagen": "/img/galeria/galeria-imagen14.jpg",
+        "descripcion": "mujer amando a los productos reacondicionados a precios bajos",
+        "width": 840,
+        "height": 496
+    }
+]

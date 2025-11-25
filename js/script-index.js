@@ -90,63 +90,78 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // uff las reseñas...
     Promise.all([
-        fetch('json/reseñas.json').then(r => r.json()),
-        fetch('json/productos.json').then(r => r.json())
-    ])
-    .then(([reseñas, productos]) => {
-        const productosMap = {};
-        Object.values(productos).flat().forEach(p => {
-            productosMap[p.id] = p;
-        });
+    fetch('/json/reseñas.json').then(r => r.json()),
+    fetch('/json/productos.json').then(r => r.json())
+])
+.then(([reseñas, productos]) => {
+    const productosMap = {};
+    Object.values(productos).flat().forEach(p => {
+        productosMap[p.id] = p;
+    });
 
-        const contenedor = document.querySelector('.valoraciones');
+    const contenedor = document.querySelector('.valoraciones');
 
-        reseñas.forEach(reseña => {
-            const producto = productosMap[reseña.producto_id];
+    reseñas.forEach(reseña => {
+        const producto = productosMap[reseña.producto_id];
 
-            if (!producto) {
-                console.warn(`Producto no encontrado para ID: ${reseña.producto_id}`);
-                return;
-            }
+        if (!producto) {
+            console.warn(`Producto no encontrado para ID: ${reseña.producto_id}`);
+            return;
+        }
 
-            const prevaloracion = document.createElement('div');
-            prevaloracion.className = 'pre-valoracion';
+        const prevaloracion = document.createElement('div');
+        prevaloracion.className = 'pre-valoracion';
 
-            const divvaloracion = document.createElement('div');
-            divvaloracion.className = 'valoracion';
-            divvaloracion.setAttribute('data-valoracion', reseña.valoracion);
-            divvaloracion.style.backgroundImage = `url(${reseña.imagen})`;
+        const divvaloracion = document.createElement('div');
+        divvaloracion.className = 'valoracion';
+        divvaloracion.setAttribute('data-valoracion', reseña.valoracion);
+        divvaloracion.style.backgroundImage = `url(${reseña.imagen})`;
 
-            const span = document.createElement('span');
-            span.textContent = reseña.nombre;
+        // Nombre del usuario
+        const span = document.createElement('span');
+        span.textContent = reseña.nombre;
+        divvaloracion.appendChild(span);
 
-            const divdescripcion = document.createElement('div');
-            divdescripcion.className = 'descripcion-valoracion';
+        // Opinión
+        const divdescripcion = document.createElement('div');
+divdescripcion.className = 'descripcion-valoracion';
 
-            const p = document.createElement('p');
-            p.textContent = reseña.opinion;
+// Opinión
+const p = document.createElement('p');
+p.textContent = reseña.opinion;
+divdescripcion.appendChild(p);
 
-            divdescripcion.appendChild(p);
-            divvaloracion.appendChild(span);
-            divvaloracion.appendChild(divdescripcion);
+// ⭐ Estrellas dentro de la descripción
+const estrellas = document.createElement('div');
+estrellas.className = 'estrellas';
+for (let i = 0; i < 5; i++) {
+    const star = document.createElement('span');
+    star.textContent = i < reseña.valoracion ? '★' : '☆'; // lleno o vacío
+    estrellas.appendChild(star);
+}
+divdescripcion.appendChild(estrellas);
 
-            const divproducto = document.createElement('div');
-            divproducto.className = 'producto-descripcion';
+// Agregar el div de descripción al div principal de valoracion
+divvaloracion.appendChild(divdescripcion);
 
-            const img = document.createElement('img');
-            img.src = producto.imagen;
-            img.alt = producto.nombre;
+        // Producto asociado
+        const divproducto = document.createElement('div');
+        divproducto.className = 'producto-descripcion';
+        const img = document.createElement('img');
+        img.src = producto.imagen;
+        img.alt = producto.nombre;
+        const pproducto = document.createElement('p');
+        pproducto.textContent = producto.nombre;
+        divproducto.appendChild(img);
+        divproducto.appendChild(pproducto);
 
-            const pproducto = document.createElement('p');
-            pproducto.textContent = producto.nombre;
+        // Montar todo
+        prevaloracion.appendChild(divvaloracion);
+        prevaloracion.appendChild(divproducto);
+        contenedor.appendChild(prevaloracion);
+    });
+})
+.catch(error => console.error('oye, no se me cargó este dato', error));
 
-            divproducto.appendChild(img);
-            divproducto.appendChild(pproducto);
-            prevaloracion.appendChild(divvaloracion);
-            prevaloracion.appendChild(divproducto);
-            contenedor.appendChild(prevaloracion);
-        });
-    })
-    .catch(error => console.error('oye, no se me cargó este dato', error));
 
 });

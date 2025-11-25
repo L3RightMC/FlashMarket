@@ -6,10 +6,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const inputoculto = document.getElementById('producto-seleccionado');
 
     // json preparate
-    fetch('productos.json')
+    fetch('/json/productos.json')
         .then(response => response.json())
         .then(data => {
-
             const todosproductos = Object.values(data).flat();
             todosproductos.forEach(producto => {
                 const option = document.createElement('div');
@@ -25,32 +24,29 @@ document.addEventListener('DOMContentLoaded', function() {
                 option.appendChild(span);
                 opcioneslista.appendChild(option);
             });
-
             inicializarselect();
         })
-        .catch(error => console.error('Error cargando productos:', error));
+        .catch(error => console.error('Oh no, no carga este producto:', error));
 
-    function inicializarselect() {
-        const opciones = document.querySelectorAll('.option');
-        selecttitulo.addEventListener('click', function() {
-            selectpersonalizado.classList.toggle('active');
-        });
+        function inicializarselect() {
+            const opciones = document.querySelectorAll('.option');
+            selecttitulo.addEventListener('click', function() {
+                selectpersonalizado.classList.toggle('active');
+            });
+            opciones.forEach(opcion => {
+                opcion.addEventListener('click', function(e) {
+                    e.stopPropagation();
 
-        opciones.forEach(opcion => {
-            opcion.addEventListener('click', function(e) {
-                e.stopPropagation();
-
-                opciones.forEach(opt => opt.classList.remove('selected'));
-                this.classList.add('selected');
-                const texto = this.querySelector('span').textContent;
-                selectexto.textContent = texto;
-                const valor = this.getAttribute('data-value');
-                inputoculto.value = valor;
-                console.log('Producto seleccionado - Precio:', valor);
-
-                selectpersonalizado.classList.remove('active');
-                calculartodo();
-
+                    opciones.forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
+                    const texto = this.querySelector('span').textContent;
+                    selectexto.textContent = texto;
+                    const valor = this.getAttribute('data-value');
+                    inputoculto.value = valor;
+                    // muestra en la consola que ha seleccionado y su precio
+                    console.log('Producto seleccionado - Precio:', valor);
+                    selectpersonalizado.classList.remove('active');
+                    calculartodo();
             });
         });
 
@@ -60,7 +56,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-
     const plazo = document.querySelector('.plazo');
     const losextras = document.querySelectorAll('.extra');
     const total1 = document.querySelector('.valor-presupuesto');
@@ -86,9 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         total1.textContent = total.toFixed(2) + '€';
-
     }
-
     // JS preparate te viene algo grande
     plazo.addEventListener('input', calculartodo);
     losextras.forEach(extra => {
@@ -103,12 +96,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const inputemail = document.getElementById('email');
     const inputelefono = document.getElementById('telefono');
 
+    // funciones para validar cada campo solo los rojos. los que no estan, que pena
+
     // validación para validar solo letras
     function validarsololetras(texto) {
         const bloq = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
         return bloq.test(texto);
     }
-
     // función para validar solo números
     function validarsolonumeros(texto) {
         const bloq = /^[0-9]+$/;
@@ -116,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     // validar correo con letras y numeros, nada mas
     function validaremail(email) {
-        const bloq = /^[a-zA-Z0-9]{3,}@[a-zA-Z]+\.[a-zA-Z]+$/;
+        const bloq = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,10}$/;
         return bloq.test(email);
     }
 
@@ -139,16 +133,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // bloqueado
+    // solo esto está permitido
     inputnombre.addEventListener('keypress', function(e) {
         const char = String.fromCharCode(e.which);
-        const bloq = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]$/;
+        const bloq = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
 
         if (!bloq.test(char)) {
             e.preventDefault();
         }
     });
-
     // validar apelli2
     inputapellidos.addEventListener('input', function() {
         const errorapellidos = this.nextElementSibling;
@@ -168,11 +161,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // jaja bloqueado x2
+    // jaja los que no estan en bloq, bloqueados. joder agregué hasta caracteres raros por si alguien se pueda llamar como: o'donell
     inputapellidos.addEventListener('keypress', function(e) {
         const char = String.fromCharCode(e.which);
-        const bloq = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]$/;
-
+        const bloq = /^[a-zA-ZéíóúÁÉÍÓÚñÑ\s'-]+$/;
         if (!bloq.test(char)) {
             e.preventDefault();
         }
@@ -216,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // jaja bloqueado x3
+    // solo numeros. desde cuando viste numeros de telefono con letras y simbolos?
     inputelefono.addEventListener('keypress', function(e) {
         const char = String.fromCharCode(e.which);
         const bloq = /^[0-9]$/;
@@ -225,7 +217,6 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
         }
     });
-
     const formulario = document.getElementById('formulario-presupuesto');
     formulario.addEventListener('submit', function(e) {
         // al mandar, valida antes. si todo ok, pasa
@@ -237,42 +228,37 @@ document.addEventListener('DOMContentLoaded', function() {
             inputnombre.nextElementSibling.style.display = 'block';
             formulariovalido = false;
         }
-
         // validar apelli2
         if (!inputapellidos.value || !validarsololetras(inputapellidos.value)) {
             inputapellidos.classList.add('error');
             inputapellidos.nextElementSibling.style.display = 'block';
             formulariovalido = false;
         }
-
         // validar email
         if (!inputemail.value || !validaremail(inputemail.value)) {
             inputemail.classList.add('error');
             inputemail.nextElementSibling.style.display = 'block';
             formulariovalido = false;
         }
-
         // validar telefono
         if (!inputelefono.value || !validarsolonumeros(inputelefono.value)) {
             inputelefono.classList.add('error');
             inputelefono.nextElementSibling.style.display = 'block';
             formulariovalido = false;
         }
-
         // bro y el producto que
         const productoseleccionado = document.getElementById('producto-seleccionado');
         if (!productoseleccionado.value) {
             alert('Por favor, selecciona un producto');
             formulariovalido = false;
         }
-
-        // Validar condiciones
+        // validar condiciones. pasa porque pasa
         const condiciones = document.getElementById('condiciones');
         if (!condiciones.checked) {
             alert('Debes aceptar las condiciones de privacidad');
             formulariovalido = false;
         }
-
+        //ufff que rico, lo ha puesto bien. consola para, no se, para ver si js esta haciendo su trabajo
         if (formulariovalido) {
             console.log('uff formulario valido - datos:', {
                 nombre: inputnombre.value,
@@ -283,9 +269,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 plazo: document.querySelector('.plazo').value,
                 presupuesto: document.querySelector('.valor-presupuesto').textContent
             });
-
+            //vamos a avisarle que si hizo bien
             alert('Presupuesto enviado correctamente!');
         } else {
+            //buuu, lo hiciste mal
             alert('Por favor, corrige los errores en el formulario');
         }
     });

@@ -50,4 +50,17 @@ document.addEventListener('DOMContentLoaded', function() {
         movertextoderecha();
         window.addEventListener('resize', iniciartextoderecha);
     });
+     const galeriaContenedor = document.querySelector('.galeria');
+
+    fetch('/json/galeria.json')
+        .then(response => response.json())
+        .then(imagenes => {
+            imagenes.forEach(item => {
+                const img = document.createElement('img');
+                img.src = item.imagen;
+                img.alt = item.descripcion;
+                galeriaContenedor.appendChild(img);
+            });
+        })
+        .catch(error => console.error('Error cargando galería:', error));
 });

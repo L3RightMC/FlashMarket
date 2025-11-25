@@ -254,6 +254,15 @@ body.oscuro h2{
     min-width: 300px;
     width: 300px;
     flex-shrink: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.pre-valoracion:hover{
+    transform: scale(1.035);
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.5);
+}
+body.oscuro .pre-valoracion:hover{
+    transform: scale(1.035);
+    box-shadow: 2px 4px 6px rgba(255, 255, 255, 0.5);
 }
 .valoracion{
     width: 100%;
@@ -282,6 +291,14 @@ body.oscuro .valoracion span{
     padding: 2px;
 }
 body.oscuro .descripcion-valoracion p{
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+.estrellas span{
+    font-size: 10px;
+    background-color: rgb(255, 255, 255, 0.5);
+}
+body.oscuro .estrellas span{
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
 }
