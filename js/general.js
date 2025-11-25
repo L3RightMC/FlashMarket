@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     //aqui no hay json
     const botontema = document.querySelector('.tema');
     const imgtema = document.querySelector('.tema img');
+
     if (!botontema) {
         console.error('bro y el .tema?');
         return;
@@ -10,21 +11,31 @@ document.addEventListener('DOMContentLoaded', function() {
     botontema.addEventListener('click', function() {
         console.log(botontema, ': soy una etiqueta de html, por si no lo sabias');
         document.body.classList.toggle('oscuro');
-
         const modoscuro = document.body.classList.contains('oscuro');
 
+        // función para probar rutas
+        function setRuta(img, ruta1, ruta2) {
+            const testImg = new Image();
+            testImg.onload = () => img.src = ruta1;
+            testImg.onerror = () => img.src = ruta2;
+            testImg.src = ruta1;
+        }
+
         if (modoscuro) {
-            if (imgtema) imgtema.src = '/img/tema/oscuro.png';
+            if (imgtema) {
+                setRuta(imgtema, '../img/tema/oscuro.png', 'img/tema/oscuro.png');
+            }
 
             console.log("*se vuelve al lado oscuro*");
-
             document.querySelectorAll('.plus span').forEach(s => s.style.color = 'white');
             document.querySelectorAll('.plus1 span').forEach(s => s.style.color = 'white');
+
         } else {
-            if (imgtema) imgtema.src = '/img/tema/claro.png';
+            if (imgtema) {
+                setRuta(imgtema, '../img/tema/claro.png', 'img/tema/claro.png');
+            }
 
             console.log("a quemar ojos");
-
             document.querySelectorAll('.plus span').forEach(s => s.style.color = '');
             document.querySelectorAll('.plus1 span').forEach(s => s.style.color = '');
         }
