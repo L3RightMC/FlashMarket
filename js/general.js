@@ -14,14 +14,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const modoscuro = document.body.classList.contains('oscuro');
 
         if (modoscuro) {
-            if (imgtema) imgtema.src = '../img/tema/oscuro.png';
+            if (imgtema) imgtema.src = '/img/tema/oscuro.png';
 
             console.log("*se vuelve al lado oscuro*");
 
             document.querySelectorAll('.plus span').forEach(s => s.style.color = 'white');
             document.querySelectorAll('.plus1 span').forEach(s => s.style.color = 'white');
         } else {
-            if (imgtema) imgtema.src = '../img/tema/claro.png';
+            if (imgtema) imgtema.src = '/img/tema/claro.png';
 
             console.log("a quemar ojos");
 
