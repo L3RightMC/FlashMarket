@@ -14,16 +14,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const modoscuro = document.body.classList.contains('oscuro');
 
         // función para probar rutas
-        function setRuta(img, ruta1, ruta2) {
-            const testImg = new Image();
-            testImg.onload = () => img.src = ruta1;
-            testImg.onerror = () => img.src = ruta2;
-            testImg.src = ruta1;
+        function setruta(img, ruta1, ruta2) {
+            const testimg = new Image();
+            testimg.onload = () => img.src = ruta1;
+            testimg.onerror = () => img.src = ruta2;
+            testimg.src = ruta1;
         }
 
         if (modoscuro) {
             if (imgtema) {
-                setRuta(imgtema, '../img/tema/oscuro.png', 'img/tema/oscuro.png');
+                setruta(imgtema, '../img/tema/oscuro.png', 'img/tema/oscuro.png');
             }
 
             console.log("*se vuelve al lado oscuro*");
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         } else {
             if (imgtema) {
-                setRuta(imgtema, '../img/tema/claro.png', 'img/tema/claro.png');
+                setruta(imgtema, '../img/tema/claro.png', 'img/tema/claro.png');
             }
 
             console.log("a quemar ojos");
