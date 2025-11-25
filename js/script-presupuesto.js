@@ -258,6 +258,29 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Debes aceptar las condiciones de privacidad');
             formulariovalido = false;
         }
+
+        //se resetea
+        const botonreset = document.querySelector('.reset');
+        botonreset.addEventListener('click', function() {
+            inputoculto.value = '';
+            selectexto.textContent = 'Selecciona un producto';
+            const opciones = document.querySelectorAll('.option');
+            opciones.forEach(opt => opt.classList.remove('selected'));
+            selectpersonalizado.classList.remove('active');
+
+            plazo.value = '';
+            losextras.forEach(extra => extra.checked = false);
+            total1.textContent = '0.00€';
+            [inputnombre, inputapellidos, inputemail, inputelefono].forEach(input => {
+                input.value = '';
+                input.classList.remove('valid', 'error');
+                if (input.nextElementSibling) input.nextElementSibling.style.display = 'none';
+            });
+            // hago focus en el campo del nombre con todo reseteado
+            inputnombre.focus();
+            console.log('amai, se reseteo todo');
+        });
+
         //ufff que rico, lo ha puesto bien. consola para, no se, para ver si js esta haciendo su trabajo
         if (formulariovalido) {
             console.log('uff formulario valido - datos:', {
