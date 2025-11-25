@@ -86,8 +86,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // uff las reseñas...
     Promise.all([
-        fetch('reseñas.json').then(r => r.json()),
-        fetch('productos.json').then(r => r.json())
+        fetch('json/reseñas.json').then(r => r.json()),
+        fetch('json/productos.json').then(r => r.json())
     ])
     .then(([reseñas, productos]) => {
         const productosMap = {};
@@ -155,3 +155,4 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .catch(error => console.error('oye, no se me cargó este dato', error));
 });
+
