@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
      const galeriaContenedor = document.querySelector('.galeria');
 
-    fetch('/json/galeria.json')
+    fetch('../json/galeria.json')
         .then(response => response.json())
         .then(imagenes => {
             imagenes.forEach(item => {

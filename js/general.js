@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
     botontema.addEventListener('click', function() {
-        console.log(botontema, ': cabrones no me miren');
+        console.log(botontema, ': soy una etiqueta de html, por si no lo sabias');
         document.body.classList.toggle('oscuro');
 
         const modoscuro = document.body.classList.contains('oscuro');
